@@ -6,4 +6,4 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN chmod +x docker/entrypoints/rails.sh
 
 EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+CMD ["sh", "-c", "bundle exec rails db:chatwoot_prepare && bundle exec rails s -p 3000 -b 0.0.0.0"]
